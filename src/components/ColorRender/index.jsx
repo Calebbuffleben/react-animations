@@ -2,13 +2,24 @@ import Color from "../Color";
 
 const ColorRender = () => {
     const color = [
-        '#DFFF00',
-        '#FFBF00',
-        '#FF7F50',
-        '#DE3163'
-    ];
+    {
+        hex: '#DFFF00',
+        name: 'color 1'
+    },
+    {
+        hex: '#FFBF00',
+        name: 'color 2'
+    },
+    {
+        hex: '#FF7F50',
+        name: 'color 3'
+    },
+    {
+        hex: '##DE3163',
+        name: 'color 4'
+    }];
     return (
-        <Color color={color} />
+        <Color colors={color} />
     )    
 }
 
