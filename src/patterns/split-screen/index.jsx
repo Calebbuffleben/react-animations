@@ -1,13 +1,22 @@
+import styled from 'styled-components';
+
+const Container = styled.div`
+    display: flex;
+`;
+const Pane = styled.div`
+    flex: 1;
+`;
+
 const SplitScreen = ({ left: Left, right: Right}) => {
     return (
-        <div>
-            <div>
+        <Container>
+            <Pane>
                 <Left />
-            </div>
-            <div>
+            </Pane>
+            <Pane>
                 <Right />
-            </div>
-        </div>
+            </Pane>
+        </Container>
     )
 };
 
