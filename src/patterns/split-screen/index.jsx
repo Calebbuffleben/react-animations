@@ -1,23 +1,15 @@
-import styled from 'styled-components';
+import SplitScreen from './SplitScreen';
 
-const Container = styled.div`
-    display: flex;
-`;
-const Pane = styled.div`
-    flex: 1;
-`;
+const LeftHandPage = () => {
+    return <h1>Left</h1>
+}
 
-const SplitScreen = ({ left: Left, right: Right}) => {
-    return (
-        <Container>
-            <Pane>
-                <Left />
-            </Pane>
-            <Pane>
-                <Right />
-            </Pane>
-        </Container>
-    )
-};
+const RightHandPage = () => {
+    return <h1>Right</h1>
+}
 
-export default SplitScreen;
+const SplitScreenPage = () => (
+    <SplitScreen left={LeftHandPage} right={RightHandPage} />
+)
+
+export default SplitScreenPage;
