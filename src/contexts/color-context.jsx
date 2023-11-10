@@ -1,10 +1,10 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState } from "react";
 
 const initialState = true;
 
 const ColorContext = createContext({
     color: initialState
-})
+});
 
 const ColorProvider = ({ children }) => {
     const [color, setColor] = useState(initialState);

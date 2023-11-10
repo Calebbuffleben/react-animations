@@ -8,6 +8,7 @@ const MenuButton = styled.div`
   cursor: pointer;
   padding: 10px;
   z-index: 2;
+  background-color: black;
 `;
 
 const MenuIcon = styled(motion.div)`
