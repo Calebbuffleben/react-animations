@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const FormValidation = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        confirmPassword: ''
+    });
+    const [errors, setErrors] = useState({});
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const formElement = event.target;
+        const newErrors = {}
         
+        if (!formData.email) {
+            newErrors.email = 'Email is required'
+        }
+
+        if (!formData.password) {
+            newErrors.email = 'Password is required'
+        }
+
+        if (!formData.confirmPassword) {
+            newErrors.email = 'Confirm password is required'
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            newErrors.confirmPassword = 'Password do not match'
+        }
     }
     return(
         <form
