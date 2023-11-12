@@ -14,20 +14,21 @@ const FormValidation = () => {
         const newErrors = {}
         
         if (!formData.email) {
-            newErrors.email = 'Email is required'
+            newErrors.email = 'Email is required';
         }
 
         if (!formData.password) {
-            newErrors.email = 'Password is required'
+            newErrors.email = 'Password is required';
         }
 
         if (!formData.confirmPassword) {
-            newErrors.email = 'Confirm password is required'
+            newErrors.email = 'Confirm password is required';
         }
 
         if (formData.password !== formData.confirmPassword) {
-            newErrors.confirmPassword = 'Password do not match'
+            newErrors.confirmPassword = 'Password do not match';
         }
+        setErrors(newErrors);
     }
     return(
         <form
