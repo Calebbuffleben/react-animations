@@ -4,6 +4,9 @@ const FormValidation = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const formElement = event.target;
+        
     }
     return(
         <form
