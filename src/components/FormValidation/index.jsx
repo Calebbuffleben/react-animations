@@ -1,9 +1,20 @@
+import React from 'react'
+
 const FormValidation = () => {
-    <form>
-        <input name="email" type="email" required />
-        <input name="password" type="password" required />
-        <input name="confirm-password" type="password" required />
-    </form>
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+    return(
+        <form
+            onSubmit={handleSubmit}
+            noValidate
+        >
+            <input name="email" type="email" required />
+            <input name="password" type="password" required />
+            <input name="confirm-password" type="password" required />
+        </form>
+    );
 }
 
 export default FormValidation;
