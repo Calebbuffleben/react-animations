@@ -7,6 +7,7 @@ const FormValidation = () => {
         confirmPassword: ''
     });
     const [errors, setErrors] = useState({});
+    const [isSubmitted, setIsSubmitted] = useState();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -36,16 +37,39 @@ const FormValidation = () => {
         if (formData.password !== formData.confirmPassword) {
             newErrors.confirmPassword = 'Password do not match';
         }
+
         setErrors(newErrors);
+
+        if(Object.keys(newErrors).length === 0) {
+            setIsSubmitted(true);
+
+            setFormData({
+                email: '',
+                password: '',
+                confirmPassword: ''
+            });
+        }
     }
     return(
         <form
             onSubmit={handleSubmit}
             noValidate
-        >
-            <input name="email" type="email" onChange={handleChange} required />
-            <input name="password" type="password" onChange={handleChange} required />
-            <input name="confirm-password" type="password" onChange={handleChange} required />
+        >   
+            <div>
+                <label>Email</label>
+                <input name="email" type="email" value={formData.email} onChange={handleChange} required /> 
+                {errors.email && <p>{errors.email}</p>}
+            </div>
+            <div>
+                <label>Password</label>
+                <input name="password" type="password" value={formData.password} onChange={handleChange} required />
+                {errors.password && <p>{errors.password}</p>}
+            </div>
+            <div>
+                <label>Confirm Password</label>
+                <input name="confirm-password" type="password" value={formData.confirmPassword  } onChange={handleChange} required />
+                {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+            </div>
         </form>
     );
 }
