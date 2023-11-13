@@ -3,6 +3,7 @@ import './App.css';
 import HamburgerMenu from './components/HamburguerMenu';
 import ColorRender from './components/ColorRender';
 import DarkMode from './components/DarkMode';
+import FormValidation from './components/FormValidation';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <DarkMode>
         <HamburgerMenu />
         <ColorRender />
+        <FormValidation />
+        <br />
       </DarkMode>
     </div>
   );
