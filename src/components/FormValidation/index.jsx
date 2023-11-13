@@ -8,6 +8,10 @@ const FormValidation = () => {
     });
     const [errors, setErrors] = useState({});
 
+    const handleChange = () => {
+
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -35,9 +39,9 @@ const FormValidation = () => {
             onSubmit={handleSubmit}
             noValidate
         >
-            <input name="email" type="email" required />
-            <input name="password" type="password" required />
-            <input name="confirm-password" type="password" required />
+            <input name="email" type="email" onChange={handleChange} required />
+            <input name="password" type="password" onChange={handleChange} required />
+            <input name="confirm-password" type="password" onChange={handleChange} required />
         </form>
     );
 }
