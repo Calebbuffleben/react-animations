@@ -8,8 +8,12 @@ const FormValidation = () => {
     });
     const [errors, setErrors] = useState({});
 
-    const handleChange = () => {
-
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        })
     }
 
     const handleSubmit = (event) => {
