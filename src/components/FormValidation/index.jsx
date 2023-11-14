@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import FormValidationWithLib from './WithLib';
 
 const FormValidation = () => {
     const [formData, setFormData] = useState({
@@ -74,6 +75,8 @@ const FormValidation = () => {
                 <button type="submit">Submit</button>
             </form>
             {isSubmitted && <p>Form submitted successfully!</p>}
+
+            <FormValidationWithLib />
         </div>
     );
 }
