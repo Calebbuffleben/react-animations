@@ -237,3 +237,12 @@ const clients = () => [
       rating: 4.8
     }
   ];
+
+  const RegularList = ({ 
+    items, 
+    resourceName 
+}) => {
+
+  }
+
+  export default RegularList;
