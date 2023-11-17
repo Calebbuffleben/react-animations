@@ -1,4 +1,8 @@
-const clients = () => [
+import RegularList from "./RegularList";
+import SmallPersonListItem from './people/SmallPeopleListItem';
+import LargePersonListItem from './people/LargePeopleListItem';
+
+const people = () => [
     {
       name: 'John Doe',
       age: 27,
@@ -238,11 +242,21 @@ const clients = () => [
     }
   ];
 
-  const RegularList = ({ 
-    items, 
-    resourceName 
-}) => {
-
+  const List = () => {
+    return (
+      <>
+        <RegularList
+          items={people}
+          resourceName="person"
+          itemComponent={SmallPersonListItem}
+        />
+        <RegularList
+          items={people}
+          resourceName="person"
+          itemComponent={LargePersonListItem}
+        />
+      </>
+    )
   }
 
-  export default RegularList;
+  export default List;
