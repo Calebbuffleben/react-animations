@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import LoginForm from "../../components/Login"
 
 const LoginContainer = () => {
+    const loggedInUser = useSelector((state) => state.userLogin.loggedInUser);
 
     return (
         <div>
@@ -8,11 +10,13 @@ const LoginContainer = () => {
       {!loggedInUser ? (
         <LoginForm />
       ) : (
-        <>
-          <UserInfo user={loggedInUser} />
-          <button onClick={handleLogout}>Logout</button>
-        </>
+        <div>
+            <h2>User Information</h2>
+            <p>Username: {/*user.username*/}</p>
+        </div>
       )}
     </div>
     )
-}
+};
+
+export default LoginContainer;
