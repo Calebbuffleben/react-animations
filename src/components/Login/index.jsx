@@ -4,30 +4,31 @@ import { login } from "../../reducers/LoginSlice";
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({ 
+        username: '', 
+        password: ''
+    })
     const [errors, setErrors] = useState('');
 
     const handleLogin = () => {
-
-        if (!username || !password) {
+        if (!user.username || !user.password) {
             setErrors('The user name or password are incorrect!');
         }
 
-        const user = { username, password };
-        dispatch(login(user));
+        const userData = { user: user.username, password: user.password };
+        dispatch(login(userData));
     }
 
     return (
         <div>
             <label>
                 Username:
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" value={user.username} onChange={(e) => setUser({ username: e.target.value })} />
                 {errors && <p>{errors}</p>}
             </label>
             <label>
                 Password:
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" value={user.password} onChange={(e) => setUser({ password: e.target.value })} />
                 {errors && <p>{errors}</p>}
             </label>
             <button onClick={handleLogin}>Login</button>
