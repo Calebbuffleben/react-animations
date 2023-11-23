@@ -5,6 +5,7 @@ import DarkMode from './components/DarkMode';
 import FormValidation from './components/FormValidation';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import LoginContainer from './containers/LoginContainer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <ColorRender />
           <FormValidation />
           <br />
+          <LoginContainer />
         </DarkMode>
       </div>
     </Provider>

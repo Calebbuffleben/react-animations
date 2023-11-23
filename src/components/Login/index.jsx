@@ -6,8 +6,14 @@ const LoginForm = () => {
     const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState('');
 
     const handleLogin = () => {
+
+        if (!username || !password) {
+            setErrors('The user name or password are incorrect!');
+        }
+
         const user = { username, password };
         dispatch(login(user));
     }
@@ -17,10 +23,12 @@ const LoginForm = () => {
             <label>
                 Username:
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                {errors && <p>{errors}</p>}
             </label>
             <label>
                 Password:
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                {errors && <p>{errors}</p>}
             </label>
             <button onClick={handleLogin}>Login</button>
         </div>
