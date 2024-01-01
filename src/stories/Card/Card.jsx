@@ -8,8 +8,8 @@ const Card = () => (
             <img src={imageHeader} alt="header" />
         </div>
         <div className="content">
-            <h2>Heading</h2>
-            <img src={stamp} alt="stamp" />
+            <h2 className="title">Heading</h2>
+            <img className="image" src={stamp} alt="stamp" />
             <p className="paragraph">Paragraph</p>
         </div>
         <button>Button</button>

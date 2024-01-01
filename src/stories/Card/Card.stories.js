@@ -9,6 +9,26 @@ export default {
     },
 }
 
-export const Load = {
-    
+export const MediaTop = {
+    args: {
+        type: 'media-top'
+    }
+}
+
+export const MediaMiddle = {
+    args: {
+        type: 'media-middle'
+    }
+}
+
+export const MediaBottom = {
+    args: {
+        type: 'media-bottom'
+    }
+}
+
+export const Artwork = {
+    args: {
+        type: 'artwork'
+    }
 }

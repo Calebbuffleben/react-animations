@@ -36,8 +36,8 @@
 .content {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 0.2fr 1fr;
-    grid-template-areas: ;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 54px 32px 0px;
 }
 .content img {
     width: 56px;
