@@ -1,4 +1,3 @@
-import './App.css';
 import HamburgerMenu from './components/HamburguerMenu';
 import ColorRender from './components/ColorRender';
 import DarkMode from './components/DarkMode';
