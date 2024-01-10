@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import LoginForm from "../../components/Login"
 import { logout } from "../../reducers/LoginSlice";
+
+import LoginForm from "../../components/Login"
 
 const LoginContainer = () => {
     const loggedInUser = useSelector((state) => state.userLogin.loggedInUser);
