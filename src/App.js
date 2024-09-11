@@ -5,6 +5,7 @@ import FormValidation from './components/FormValidation';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import LoginContainer from './containers/LoginContainer';
+import Input from './algorithms/Input';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <FormValidation />
           <br />
           <LoginContainer />
+          <Input />
         </DarkMode>
       </div>
     </Provider>
