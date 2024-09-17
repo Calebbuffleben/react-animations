@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import LoginContainer from './containers/LoginContainer';
 import Input from './algorithms/Input';
+import MyVideo from './animations/FadeIn';
+import CalendarComponent from './components/Calendar/CalendarComponent';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <LoginContainer />
           <Input />
         </DarkMode>
+        <h1>Motion Canvas Example in React & TypeScript</h1>
+        <CalendarComponent />
       </div>
     </Provider>
   );
