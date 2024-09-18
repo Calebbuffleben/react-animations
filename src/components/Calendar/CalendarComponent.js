@@ -45,6 +45,33 @@ const CalendarComponent = () => {
     });
     const daysArray = [];
 
+    const getDaysOfMonth = (year, month) => {
+        return new Date(year, month + 1, 0).getDate();
+    }
+
+    const getFirstDayOfMonth = (year, month) => {
+        return new Date(year, month, 1).getDay();
+    };
+
+    const handleMonthChange = (direction) => {
+        let newMonth = calendar.month + direction;
+        let newYear = calendar.year;
+
+        if(newMonth < 0) {
+            newMonth = 11;
+            newYear -= 1;
+        } else if (newMonth > 11) {
+            newMonth = 0;
+            newYear += 1;
+        }
+
+        setCalendar(prevState => ({...prevState, month: newMonth }));
+        setCalendar(prevState => ({...prevState, year: newYear }));
+    }
+
+    const daysInMonth = getDaysOfMonth(calendar.year, calendar.month);
+    const firstDayOfMonth = getFirstDayOfMonth(calendar.year, calendar.month);
+
     return (
         <div>
             <CalendarContainer>
