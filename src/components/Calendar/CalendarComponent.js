@@ -43,6 +43,7 @@ const CalendarComponent = () => {
         month: today.getMonth(),
         year: today.getFullYear()
     });
+    const [selectedDate, setSelectedDate] = useState(today.getDate());
     const daysArray = [];
 
     const getDaysOfMonth = (year, month) => {
@@ -72,6 +73,27 @@ const CalendarComponent = () => {
     const daysInMonth = getDaysOfMonth(calendar.year, calendar.month);
     const firstDayOfMonth = getFirstDayOfMonth(calendar.year, calendar.month);
 
+    // Fill in empty days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        daysArray.push(<Day key={`empty-${i}`} />);
+    }
+
+    //Add days of the month
+    for( let day = 1; day <= daysInMonth; day++) {
+        const isToday = day === today.getDate() && calendar.month === today.getMonth() && calendar.year === today.getFullYear();
+        const isSelected = day === selectedDate;
+
+        daysArray.push(
+            <Day
+                key={day}
+                isToday={isToday}
+                isSelected={isSelected}
+                onClick={() => setSelectedDate(day)}
+            >
+            {day}
+            </Day>
+        )
+    }
     return (
         <div>
             <CalendarContainer>
