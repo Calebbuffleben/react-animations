@@ -6,6 +6,10 @@ class Cache{
         this.tail = null;
     }
 
+    get(key){
+
+    }
+
     put(key, value){
         //If the cache arleady have this key
         if(cache[key]){
