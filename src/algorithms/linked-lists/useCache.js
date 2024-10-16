@@ -7,7 +7,12 @@ class Cache{
     }
 
     get(key){
+        if(this.cache[key]){
+            this.moveToFront(key);
+            return this.cache[key].value;
+        }
 
+        return -1;
     }
 
     put(key, value){
