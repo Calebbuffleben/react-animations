@@ -1,7 +1,9 @@
 import { useState } from "react";
+import useCache from "./useCache";
 
 const DynamicContentLoader = () => {
     const [content, setContent] = useState([]);
+    const {get, put} = useCache(3);
 
     const loadContent = async (id) => {
         await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -10,12 +12,18 @@ const DynamicContentLoader = () => {
             id,
             text: `Tab ${id} Data`
         };
-
-        setContent(prev => [...prev, loadedContent])
+        put(id, loadedContent);
+        setContent(prev => [...prev, loadedContent]);
     }
 
     const handleButtonClick = (id) => {
-        loadContent(id);
+        const cachedContent = get(id);
+
+        if (cachedContent){
+            setContent(prev => [...prev, cachedContent])
+        } else {
+            loadContent(id);
+        }
     }
 
     return (

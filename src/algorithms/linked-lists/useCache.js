@@ -1,3 +1,5 @@
+const { useRef } = require("react");
+
 class Cache{
     constructor(capacity){
         this.capacity = capacity;
@@ -12,12 +14,12 @@ class Cache{
             return this.cache[key].value;
         }
 
-        return -1;
+        return null;
     }
 
     put(key, value){
         //If the cache arleady have this key
-        if(cache[key]){
+        if(this.cache[key]){
             //Update the value of the key and move it to front
             this.cache[key].value = value;
 
@@ -52,7 +54,7 @@ class Cache{
             this.head = newNode;
         }
 
-        this.cache[key] = value
+        this.cache[key] = newNode
     }
 
     moveToFront(key) {
@@ -110,3 +112,14 @@ class Cache{
         }
     }
 }
+
+const useCache = (capacity) => {
+    const cacheRef = useRef(new Cache(capacity));
+
+    return{
+        get: (key) => cacheRef.current.get(key),
+        put: (key, value) => cacheRef.current.put(key, value)
+    }
+}
+
+export default useCache;
