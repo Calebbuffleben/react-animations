@@ -11,8 +11,8 @@ export class PaymentContext {
         this.paymentMethod = paymentMethod;
     }
 
-    processPayment(amount: number): string {
-        return this.paymentMethod.pay(amount);
+    async processPayment(amount: number): Promise<string> {
+        return await this.paymentMethod.pay(amount);
     }
 
 }

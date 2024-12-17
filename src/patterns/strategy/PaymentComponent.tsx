@@ -10,7 +10,7 @@ const PaymentComponent: FC = () => {
     const [ paymentMethod, setPaymentMethod ] = useState<string>('');
     const [ message, setMessage ] = useState<string>('');
     
-    const handlePayment = () => {
+    const handlePayment = async () => {
         const amount = 100;
 
         let paymentStrategy;
@@ -29,7 +29,7 @@ const PaymentComponent: FC = () => {
         }
 
         const paymentContext = new PaymentContext(paymentStrategy);
-        const result = paymentContext.processPayment(amount);
+        const result = await paymentContext.processPayment(amount);
         setMessage(result);
     }
     return (
